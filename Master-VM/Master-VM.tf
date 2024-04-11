@@ -1,15 +1,21 @@
+terraform {
+  required_providers {
+    openstack = {
+        source = "terraform-provider-openstack/openstack"
+    }
+  }
+}
+
+provider "openstack" {
+  cloud = "openstack" # defined in ~/.config/openstack/clouds.yaml
+}
+
 resource "openstack_compute_instance_v2" "ysi-master-vm" {
   name            = "ysi-master-vm"
   image_name      = "Ubuntu-22.04-LTS"
   flavor_name     = "C4R6_10G"
   key_pair        = "ysi"
   security_groups = ["sshOslomet"]
-
-  required_providers {
-    openstack = {
-      source = "terraform-provider-openstack/openstack"
-    }
-}
 
   network {
     name = "acit"
