@@ -36,8 +36,8 @@ resource "openstack_compute_instance_v2" "ysi-master-vm" {
 
   # Authentication in /home/ubuntu/.config/openstack/clouds.yaml
   provisioner "file" {
-    source      = "/home/ysi/Docs/clouds.yaml"
-    destination = "/home/ubuntu/.config/openstack/clouds.yaml"
+    source      = "/home/ysi/.config"
+    destination = "/home/ubuntu/.config"
 
     connection {
       host        = self.access_ip_v4
