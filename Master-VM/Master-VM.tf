@@ -5,6 +5,12 @@ resource "openstack_compute_instance_v2" "ysi-master-vm" {
   key_pair        = "ysi"
   security_groups = ["sshOslomet"]
 
+  required_providers {
+    openstack = {
+      source = "terraform-provider-openstack/openstack"
+    }
+}
+
   network {
     name = "acit"
   }
